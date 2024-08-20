@@ -131,7 +131,7 @@ h1 {
 }
 
 .project.expanded .project-content {
-    max-height: 2000px;
+    max-height: 5000px;
 }
 
 .project-image {
@@ -141,13 +141,13 @@ h1 {
 }
 
 .project-brief {
-    font-size: 2.0rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     padding: 0 2rem;
 }
 
 .project-details {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
     padding: 0 2rem 2rem;
 }
@@ -187,7 +187,7 @@ h1 {
 }
 
 .contact-content {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 1.4;
     margin-bottom: 2rem;
 }
