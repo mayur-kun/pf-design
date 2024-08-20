@@ -19,4 +19,42 @@ document.addEventListener('DOMContentLoaded', function() {
         contactCard.classList.toggle('visible');
         contactToggle.textContent = contactCard.classList.contains('visible') ? '← close' : 'contact me →';
     });
+
+    // Update time and weather initially and then every minute
+    updateTimeAndWeather();
+    setInterval(updateTimeAndWeather, 60000);
 });
+
+function updateTimeAndWeather() {
+    const locationInfo = document.getElementById('location-info');
+    
+    // Update time
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' });
+
+    // Fetch weather data
+    const apiKey = '95280c8d75d797f82334f416853739be';
+    const city = 'Mumbai';
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=19.07&lon=72.87&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            const temp = Math.round(data.main.temp);
+            const weatherIcon = getWeatherIcon(data.weather[0].icon);
+            locationInfo.innerHTML = `Mumbai • ${timeString}`;
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+            locationInfo.innerHTML = `Mumbai • ${timeString}`;
+        });
+}
+
+function getWeatherIcon(iconCode) {
+    const iconMap = {
+        '01d': '☀️', '01n': '🌙', '02d': '⛅', '02n': '☁️',
+        '03d': '☁️', '03n': '☁️', '04d': '☁️', '04n': '☁️',
+        '09d': '🌧️', '09n': '🌧️', '10d': '🌦️', '10n': '🌧️',
+        '11d': '⛈️', '11n': '⛈️', '13d': '❄️', '13n': '❄️',
+        '50d': '🌫️', '50n': '🌫️'
+    };
+    return iconMap[iconCode] || '🌡️';
+}
