@@ -34,7 +34,7 @@ function updateTimeAndWeather() {
 
     // Fetch weather data
     const apiKey = WEATHER_API_KEY;
-    const city = 'Mumbai';
+    // const city = 'Mumbai';
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=19.07&lon=72.87&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => {
