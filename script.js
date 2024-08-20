@@ -33,9 +33,9 @@ function updateTimeAndWeather() {
     const timeString = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' });
 
     // Fetch weather data
-    const apiKey = os.environ.get('WEATHER_API_KEY');
+    const apiKey = '95280c8d75d797f82334f416853739be';
     // const city = 'Mumbai';
-    
+
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=19.07&lon=72.87&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => {
