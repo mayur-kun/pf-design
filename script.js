@@ -25,6 +25,31 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(updateTimeAndWeather, 60000);
 });
 
+// function updateTimeAndWeather() {
+//     const locationInfo = document.getElementById('location-info');
+    
+//     // Update time
+//     const now = new Date();
+//     const timeString = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' });
+
+//     // Fetch weather data
+//     const apiKey = 'WEATHER_API_KEY';
+//     // const city = 'Mumbai';
+
+//     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=19.07&lon=72.87&appid=${apiKey}`)
+//         .then(response => response.json())
+//         .then(data => {
+//             const temp = Math.round(data.main.temp);
+//             const weatherIcon = getWeatherIcon(data.weather[0].icon);
+//             locationInfo.innerHTML = `Mumbai • ${timeString}`;
+//         })
+//         .catch(error => {
+//             console.error('Error fetching weather data:', error);
+//             locationInfo.innerHTML = `Mumbai • ${timeString}`;
+//         });
+// }
+
+
 function updateTimeAndWeather() {
     const locationInfo = document.getElementById('location-info');
     
@@ -33,15 +58,14 @@ function updateTimeAndWeather() {
     const timeString = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' });
 
     // Fetch weather data
-    const apiKey = '95280c8d75d797f82334f416853739be';
-    // const city = 'Mumbai';
+    const apiKey = config.WEATHER_API_KEY;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=19.07&lon=72.87&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=19.07&lon=72.87&appid=${apiKey}&units=metric`)
         .then(response => response.json())
         .then(data => {
             const temp = Math.round(data.main.temp);
             const weatherIcon = getWeatherIcon(data.weather[0].icon);
-            locationInfo.innerHTML = `Mumbai • ${timeString}`;
+            locationInfo.innerHTML = `Mumbai • ${timeString} • ${weatherIcon} ${temp}°C`;
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
