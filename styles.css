@@ -2,6 +2,7 @@
     /* --bg-color: #121212; */
     --bg-color-start: #160031;
     --bg-color-end: #01010f;
+    --text-color: #ffffff;
     --accent-color: #4CAF50;
     --grid-color: rgba(255, 255, 255, 0.1);
 }
