@@ -297,10 +297,10 @@ h1 {
   
 .fade-in-left {
     opacity: 0;
-    animation: fadeInLeft 1.4s ease-out forwards;
+    animation: fadeInLeft 1.2s ease-out forwards;
   }
   
 .fade-in-right {
     opacity: 0;
-    animation: fadeInRight 1.4s ease-out forwards;
+    animation: fadeInRight 1.2s ease-out forwards;
   }
