@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Create and click download link
             const link = document.createElement('a');
-            link.href = 'Mayur_Parab.pdf'; // Make sure this file exists in your root directory
+            link.href = 'img\Mayur_Parab.pdf'; // Make sure this file exists in your root directory
             link.download = 'Mayur_Parab_Resume.pdf';
             
             document.body.appendChild(link);
