@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const projects = document.querySelectorAll('.project');
+    const contactToggle = document.getElementById('contact-toggle');
+    const contactCard = document.getElementById('contact-card');
+    // const contactDetails = document.getElementById('contact-details');
+    
     projects.forEach(project => {
         const color = project.getAttribute('data-color');
         project.querySelector('.project-header').style.backgroundColor = color;
@@ -7,48 +11,105 @@ document.addEventListener('DOMContentLoaded', function() {
         project.addEventListener('click', () => {
             project.classList.toggle('expanded');
             const arrow = project.querySelector('.arrow');
-            arrow.textContent = project.classList.contains('expanded') ? '↓' : '→';
+            arrow.textContent = project.classList.contains('expanded') ? '← close' : 'read more →';
         });
     });
 
-    const contactToggle = document.getElementById('contact-toggle');
-    const contactCard = document.getElementById('contact-card');
+    contactToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const isVisible = contactCard.classList.contains('visible');
 
+        contactCard.classList.toggle('visible');
+        contactToggle.textContent = contactCard.classList.contains('visible') ? '← close' : 'contact me →';
+
+        if (!isVisible) {
+        // Use requestAnimationFrame to ensure the DOM has updated before scrolling
+        requestAnimationFrame(() => {
+            contactCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    }
+
+
+    function downloadResume(e) {
+        e.preventDefault();
+        
+        const resumePath = "Mayur_Parab.pdf";
+        
+        const link = document.createElement('a');
+        link.href = resumePath;
+        link.download = 'Mayur_Parab_Resume.pdf';
+        
+        document.body.appendChild(link);
+        link.click();
+        
+        document.body.removeChild(link);
+    }
+
+    //download resume button    
+    
+    const resumeButton = document.getElementById('intro-resume-button');
+     
+    // Add click handler if the button exists
+    if (resumeButton) {
+        resumeButton.addEventListener('click', function() {
+            const button = this;
+            const originalText = button.textContent;
+            
+            // Show loading state
+            button.textContent = 'Downloading...';
+            button.disabled = true;
+            
+            // Create and click download link
+            const link = document.createElement('a');
+            link.href = 'Mayur_Parab.pdf'; // Make sure this file exists in your root directory
+            link.download = 'Mayur_Parab_Resume.pdf';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Reset button state after a short delay
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 1500);
+        });
+    }
+
+    //contact toggle
     contactToggle.addEventListener('click', function(e) {
         e.preventDefault();
         contactCard.classList.toggle('visible');
         contactToggle.textContent = contactCard.classList.contains('visible') ? '← close' : 'contact me →';
     });
-
+    
     // Update time and weather initially and then every minute
     updateTimeAndWeather();
     setInterval(updateTimeAndWeather, 60000);
-});
 
-// function updateTimeAndWeather() {
-//     const locationInfo = document.getElementById('location-info');
+    // Intersection Observer setup
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
     
-//     // Update time
-//     const now = new Date();
-//     const timeString = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' });
-
-//     // Fetch weather data
-//     const apiKey = 'WEATHER_API_KEY';
-//     // const city = 'Mumbai';
-
-//     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=19.07&lon=72.87&appid=${apiKey}`)
-//         .then(response => response.json())
-//         .then(data => {
-//             const temp = Math.round(data.main.temp);
-//             const weatherIcon = getWeatherIcon(data.weather[0].icon);
-//             locationInfo.innerHTML = `Mumbai • ${timeString}`;
-//         })
-//         .catch(error => {
-//             console.error('Error fetching weather data:', error);
-//             locationInfo.innerHTML = `Mumbai • ${timeString}`;
-//         });
-// }
-
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements with animation classes
+    document.querySelectorAll('.fade-in-left, .fade-in-right').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+    });
+});
 
 function updateTimeAndWeather() {
     const locationInfo = document.getElementById('location-info');
@@ -83,25 +144,4 @@ function getWeatherIcon(iconCode) {
     };
     return iconMap[iconCode] || '🌡️';
 }
-
-// Intersection Observer for animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-  
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = 'running';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-  
-// Observe elements with animation classes
-document.querySelectorAll('.fade-in-left, .fade-in-right').forEach(el => {
-    el.style.animationPlayState = 'paused';
-    observer.observe(el);
-  });
+});

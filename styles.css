@@ -124,8 +124,8 @@ h1 {
 }
 
 .arrow {
-    font-size: 3.0rem;
-    font-weight: bold;
+    font-size: 1.0rem;
+    font-weight: normal;
 }
 
 .project-content {
@@ -191,16 +191,23 @@ h1 {
 }
 
 .contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
     font-size: 2.5rem;
     line-height: 1.4;
     margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1.5rem;
 }
 
 .contact-content p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 
 .email-highlight {
+    margin-bottom: 0.5rem;
     color: var(--accent-color);
     text-decoration: none;
 }
@@ -214,9 +221,11 @@ h1 {
 }
 
 .section-link {
+    background-color: transparent;
+    /* color: var(--text-color); */
+    border: 0.0625rem solid var(--text-color);
     display: inline-block;
     padding: 0.5rem 1rem;
-    border: 1px solid #fff;
     color: #fff;
     text-decoration: none;
     font-size: 0.9rem;
@@ -232,7 +241,9 @@ h1 {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 1rem;
-    margin-top: 1rem;
+    display: none;
+    margin-top: 20px;
+    /* margin-top: 1rem; */
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
     max-height: 0;
     opacity: 0;
@@ -240,6 +251,7 @@ h1 {
 }
 
 #contact-card.visible {
+    display: block;
     max-height: 200px;
     opacity: 1;
 }
@@ -250,7 +262,74 @@ h1 {
 
 #contact-card a {
     color: var(--accent-color);
+    text-decoration: none;
 }
+
+#contact-card a:hover {
+    text-decoration: underline;
+}
+
+.intro-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+#location-info {
+    margin: 0;
+  }
+
+.resume-button {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 0.0625rem solid var(--accent-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+.resume-button, .section-link {
+    width: 100%;
+    max-width: 15rem;
+    text-align: center;
+    padding: 0.625rem 1.25rem;
+    border-radius: 1.25rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.resume-button:hover, .section-link:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color-start);
+}
+
+/* .resume-button:hover {
+    text-decoration: underline;
+} */
+
+.resume-button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+  
+.contact-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem; /*space between buttons*/
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .contact-buttons .resume-button,
+  .contact-buttons .section-link {
+      flex: 0 1 auto;
+      max-width: 15rem;
+  }
+
 
 @media (max-width: 768px) {
     .container {
@@ -279,8 +358,19 @@ h1 {
         flex: 0 0 100%;
     }
 
+    .contact-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .contact-content {
-        font-size: 2rem;
+        align-items: center
+    }
+
+    .intro-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 }
 
