@@ -11,10 +11,39 @@ document.addEventListener('DOMContentLoaded', function() {
         project.addEventListener('click', () => {
             project.classList.toggle('expanded');
             const arrow = project.querySelector('.arrow');
-            arrow.textContent = project.classList.contains('expanded') ? '← close' : 'read more →';
+            arrow.textContent = project.classList.contains('expanded') ? 'collapse' : 'read more...';
+            
+            // Get the project content element
+            const projectContent = project.querySelector('.project-content');
+            
+            // Add a small delay to ensure the transition has started
+            setTimeout(() => {
+                if (project.classList.contains('expanded')) {
+                    // If expanding, scroll to the project content with offset
+                    const offset = 5; // Adjust this value as needed
+                    const elementPosition = projectContent.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // If collapsing, scroll to the project card with offset
+                    const offset = 5; // Adjust this value as needed
+                    const elementPosition = project.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 50); // Small delay to ensure smooth transition
         });
     });
 
+    
     contactToggle.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -31,20 +60,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    function downloadResume(e) {
-        e.preventDefault();
+    // function downloadResume(e) {
+    //     e.preventDefault();
         
-        const resumePath = "Mayur_Parab.pdf";
+    //     const resumePath = "Mayur_Parab.pdf";
         
-        const link = document.createElement('a');
-        link.href = resumePath;
-        link.download = 'Mayur_Parab_Resume.pdf';
+    //     const link = document.createElement('a');
+    //     link.href = resumePath;
+    //     link.download = 'Mayur_Parab_Resume.pdf';
         
-        document.body.appendChild(link);
-        link.click();
+    //     document.body.appendChild(link);
+    //     link.click();
         
-        document.body.removeChild(link);
-    }
+    //     document.body.removeChild(link);
+    // }
 
     //download resume button    
     
