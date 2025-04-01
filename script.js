@@ -62,3 +62,9 @@ function getWeatherIcon(iconCode) {
     };
     return iconMap[iconCode] || '🌡️';
 }
+
+// Get the current year
+ const currentYear = new Date().getFullYear();
+  
+// Update the year in the copyright notice
+document.getElementById('current-year').textContent = currentYear;
