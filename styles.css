@@ -49,7 +49,7 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -92,7 +92,7 @@ h1 {
     margin-top: 1rem;
 }
 
-.project {
+/* .project {
     margin-bottom: 2rem;
     border-radius: 8px;
     overflow: hidden;
@@ -100,71 +100,110 @@ h1 {
     cursor: pointer;
 }
 
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-}
-
-.project-info {
-    flex-grow: 1.8;
-}
-
-.project h2 {
-    font-size: 2.5rem;
-    font-weight: normal;
-    margin: 0;
-}
-
-.project-meta {
-    font-size: 1rem;
-    opacity: 0.7;
-    margin-top: 0.5rem;
-}
-
-.arrow {
-    font-size: 1.0rem;
-    font-weight: italic;
-}
-
 .project-content {
     max-height: 400px;
     overflow: hidden;
     transition: max-height 0.5s ease;
+} */
+
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.project.expanded .project-content {
-    max-height: 5000px;
+.service-card {
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1), 
+                rgba(255, 255, 255, 0.05));
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border-left: 4px solid var(--card-color);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.project-image {
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    background: linear-gradient(135deg, 
+                rgba(var(--card-color-rgb), 0.2), 
+                transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
-.project-brief {
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    padding: 0 2rem;
 }
 
-.project-details {
-    font-size: 1.6rem;
+.service-card h3 {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    padding: 0 2rem 2rem;
+    color: var(--card-color);
 }
+
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Convert hex to RGB for the cards */
+.service-card[style*="--card-color: #2196F3"] {
+    --card-color-rgb: 33, 150, 243;
+}
+
+.service-card[style*="--card-color: #FF5722"] {
+    --card-color-rgb: 255, 87, 34;
+}
+
+.service-card[style*="--card-color: #4CAF50"] {
+    --card-color-rgb: 76, 175, 80;
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 #about, #contact {
     margin-top: 6rem;
     position: relative;
 }
 
+.section-title-services {
+    font-size: 2rem;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
 .section-title {
     font-size: 1rem;
     font-weight: normal;
-    color: #888;
+    color: #888888;
     margin-bottom: 2rem;
 }
 
@@ -176,13 +215,13 @@ h1 {
 
 .about-text {
     flex: 1;
-    font-size: 2rem;
-    line-height: 1.4;
+    font-size: 1.4rem;
+    line-height: 2;
     margin-right: 2rem;
 }
 
 .about-image {
-    flex: 0 0 400px;
+    flex: 0 0 360px;
 }
 
 .about-image img {
@@ -195,7 +234,7 @@ h1 {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    font-size: 2.5rem;
+    font-size: 1.4rem;
     line-height: 1.4;
     margin-bottom: 2rem;
     position: relative;
@@ -250,25 +289,6 @@ h1 {
     overflow: hidden;
 }
 
-#contact-card.visible {
-    display: block;
-    max-height: 200px;
-    opacity: 1;
-}
-
-#contact-card p {
-    margin-bottom: 0.5rem;
-}
-
-#contact-card a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-#contact-card a:hover {
-    text-decoration: underline;
-}
-
 .intro-footer {
     display: flex;
     justify-content: space-between;
@@ -280,56 +300,60 @@ h1 {
     margin: 0;
   }
 
-.resume-button {
-    background-color: transparent;
-    color: var(--accent-color);
-    border: 0.0625rem solid var(--accent-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
 
-.resume-button, .section-link {
-    width: 100%;
-    max-width: 15rem;
-    text-align: center;
-    padding: 0.625rem 1.25rem;
-    border-radius: 1.25rem;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    text-decoration: none;
-    display: inline-block;
-    box-sizing: border-box;
-}
-
-.resume-button:hover, .section-link:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color-start);
-}
-
-/* .resume-button:hover {
-    text-decoration: underline;
-} */
-
-.resume-button:disabled {
-    opacity: 0.7;
-    cursor: wait;
-}
-  
-.contact-buttons {
+/* Update your social-links and social-link classes */
+.social-links {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1rem; /*space between buttons*/
-    width: 100%;
+    flex-direction: column;
+    gap: 0.8rem;
     margin-top: 1rem;
-  }
-  
-  .contact-buttons .resume-button,
-  .contact-buttons .section-link {
-      flex: 0 1 auto;
-      max-width: 15rem;
-  }
+}
 
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Style for the service name (Email, X/Twitter) */
+.service-name {
+    color: var(--accent-color);
+    font-weight: 420;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Style for the description text */
+.service-description {
+    color: var(--text-color);
+}
+
+/* Hover underline effect for service names */
+.service-name::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.service-name:hover::after {
+    width: 100%;
+}
+
+/* Link container */
+.contact-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.contact-link:hover .service-name {
+    text-decoration: none;
+}
 
 @media (max-width: 768px) {
     .container {
@@ -356,11 +380,6 @@ h1 {
 
     .about-image {
         flex: 0 0 100%;
-    }
-
-    .contact-buttons {
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .contact-content {
