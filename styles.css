@@ -189,16 +189,16 @@ h1 {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-}
-
-.project-header {
-    margin-bottom: 0.25rem;
+    gap: 0.6rem;
 }
 
 .project-header h3 {
     font-size: 1.4rem;
     margin: 0;
+}
+
+.project-header {
+    margin-bottom: 0.15rem;
 }
 
 .project-meta {
