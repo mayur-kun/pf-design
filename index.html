@@ -1,188 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayur Parab - AI Engineer & Web Dev</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Mayur Parab · Applied Generalist</title>
+    <meta name="description" content="Mayur Parab is an applied generalist and the founder of XeroLabs, where he is building Auralynk, a social app for real-world side-quests.">
+    <meta name="theme-color" content="#DBF2FC">
+    <meta name="color-scheme" content="light">
+    <link rel="canonical" href="https://mayurparab.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mayur Parab · Applied Generalist">
+    <meta property="og:description" content="Mayur Parab is an applied generalist and the founder of XeroLabs, where he is building Auralynk, a social app for real-world side-quests.">
+    <meta property="og:url" content="https://mayurparab.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23072D59'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%23DBF2FC'%3EM%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-    <div class="container">
-        <header class="fade-in-left">
-            <div class="logo">.mayur parab</div>
-            <nav>
-                <a href="#build">.build</a>
-                <a href="#projects">.projects</a>
-                <a href="#about">.about</a>
-                <a href="#contact">.contact</a>
-                <a href="https://linkedin.com/in/mayurparab23" target="_blank" rel="noopener noreferrer">.linkedin</a>
+    <div class="frame" id="top">
+        <header class="top">
+            <a class="brand" href="#top">Mayur Parab</a>
+            <nav class="nav" aria-label="Sections">
+                <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
             </nav>
+            <div class="clock"><i aria-hidden="true"></i><span id="clock">Navi Mumbai</span></div>
         </header>
-        <script src="config.js"></script>
-        <main role="main">
-            <section class="intro fade-in-left">
-                <p class="greeting">Hey there!</p>
-                <h1>I'm Mayur — <br>
-                <span>an AI Engineer & Web Developer</span><br>
-                <span class="highlight">who builds intelligent AI products from scratch to scale.</span> </h1>
-                <div class="intro-footer">
-                    <p id="location-info">Mumbai • 12:07 • ☁️ 28°C</p>
-                    <!-- <button id="intro-resume-button" class="resume-button">.download resume</button> -->
-                </div>
-            </section>
 
-            <section id="build" class="section fade-in-left">
-                <h2 class="section-title-services">I can help you build —</h2>
-                <div class="services-grid">
-                    <div class="service-card" style="--card-color: #2196F3;">
-                        <div class="service-icon">🧠</div>
-                        <h3>AI-Driven Products</h3>
-                        <p>From intelligent chatbots to personalized recommendation engines and LLM-powered tools — I design and develop AI systems that drive real user engagement and value.</p>
-                    </div>
-                    
-                    <div class="service-card" style="--card-color: #FF5722;">
-                        <div class="service-icon">🌐</div>
-                        <h3>Interactive Web Apps</h3>
-                        <p>Need a sleek frontend and robust backend? I build full-stack web applications using React, Node.js, and MongoDB, with a focus on performance, UX, and scalability.</p>
-                    </div>
-                    
-                    <div class="service-card" style="--card-color: #4CAF50;">
-                        <div class="service-icon">🚀</div>
-                        <h3>End-to-End ML Pipelines</h3>
-                        <p>I develop scalable machine learning pipelines—from raw data ingestion and preprocessing to model deployment on cloud platforms (AWS,GCP), with MLOps best practices and CI/CD integration.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects" class="section projects-section fade-in-left">
-                <p class="section-title">.projects</p>
-                <h2 class="section-title-services">Recent builds grounded in real-world impact</h2>
-                <div class="projects-grid">
-                    <article class="project-card">
-                        <div class="project-meta-column">
-                            <h3>Lead Prioritization &amp; Sales Insights Engine</h3>
-                            <p class="project-role">AI Consultant &middot; Freelance</p>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-summary">Built a lightweight ML system for a B2B sales team to prioritize inbound leads and surface actionable insights.</p>
-                            <ul>
-                                <li>Designed a scoring model that ranked leads using behavioural data, historical conversions, and website interaction patterns.</li>
-                                <li>Implemented sentiment + intent extraction on inbound messages to classify prospects (cold, warm, hot).</li>
-                                <li>Automated generation of short sales briefs summarizing each lead's needs, objections, and recommended outreach angle.</li>
-                                <li>Integrated directly into the client's CRM so the sales team received real-time prioritization cues.</li>
-                            </ul>
-                            <p class="project-impact"><strong>Impact:</strong> Helped the team focus on high-intent leads first, improving outreach efficiency and reducing manual triaging time by 40%.</p>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <div class="project-meta-column">
-                            <h3>AI-powered Document Processing</h3>
-                            <p class="project-role">AI Consultant &middot; Freelance</p>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-summary">Built an ML system that transforms noisy OCR scans and receipts into clean, structured data.</p>
-                            <ul>
-                                <li>Engineered pipelines that extract structured fields from low-quality documents.</li>
-                                <li>Improved multiclass inquiry-classification accuracy to 85%+ using fine-tuned models.</li>
-                                <li>Automated review workflows, reducing repetitive manual effort by ~60%.</li>
-                            </ul>
-                            <p class="project-impact"><strong>Impact:</strong> Faster operations, fewer errors, and a scalable automation backbone.</p>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <div class="project-meta-column">
-                            <h3>Customer Inquiry Handling Agent</h3>
-                            <p class="project-role">AI Consultant &middot; Freelance</p>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-summary">Designed an intelligent agent that interprets customer web submissions and generates accurate, context-aware recommendations.</p>
-                            <ul>
-                                <li>Extracted essential signals from long-form user input.</li>
-                                <li>Classified inquiries by urgency and sentiment to eliminate response delays.</li>
-                                <li>Suggested next-step actions so support teams could deliver more personalized engagement.</li>
-                            </ul>
-                            <p class="project-impact"><strong>Impact:</strong> Quicker triage, more efficient support teams, and human-like customer experiences.</p>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <div class="project-meta-column">
-                            <h3>Azure Data Lake Ingestion Suite</h3>
-                            <p class="project-role">Data Engineer &middot; Group Data and Analytics, Aditya Birla Management Corporation</p>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-summary">Developed a resilient ingestion suite capable of handling deeply nested datasets across enterprise environments.</p>
-                            <ul>
-                                <li>Architected Azure Data Factory pipelines for ingestion, transformation, and landing into ADLS Gen2.</li>
-                                <li>Strengthened pipelines so downstream analytics remained stable despite complex JSON structures.</li>
-                                <li>Removed throughput bottlenecks and optimized workloads to cut compute and storage costs.</li>
-                            </ul>
-                            <p class="project-impact"><strong>Impact:</strong> A dependable, scalable foundation for analytics and reporting across the organization.</p>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <div class="project-meta-column">
-                            <h3>Data Quality Automation Framework</h3>
-                            <p class="project-role">Data Engineer &middot; Group Data and Analytics, Aditya Birla Management Corporation</p>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-summary">Built an automated framework that enforces and validates data quality across teams.</p>
-                            <ul>
-                                <li>Implemented a validation layer using Apache Spark and Great Expectations.</li>
-                                <li>Converted stakeholder insights into automated tests and standardized runbooks.</li>
-                                <li>Created clear documentation for rapid onboarding and fast extension of the framework.</li>
-                            </ul>
-                            <p class="project-impact"><strong>Impact:</strong> Higher data reliability, reduced manual QA, and consistent standards across teams.</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section id="about" class="section">
-                <h2 class="section-title fade-in-left">.about</h2>
-                <div class="about-content">
-                    <div class="about-text fade-in-left">
-                        <p>Based in <span class="highlight">Mumbai, India.</span><br>
-                        I’m a hybrid engineer at the intersection of <span class="highlight">Data Science, AI, and Web Development.</span> <br>
-                        With experience building ML systems and shipping production-ready web apps, <span class="highlight">I turn complex ideas into elegant, functional products.</span> <br>
-                        I work across the stack— <span class="highlight">training predictive models, deploying scalable pipelines; and building clean, intuitive wesbites.</span> <br> 
-                        When I’m not optimizing code or debugging workflows, you’ll find me buried in sports stats, thinking of new ways data can explain the beautiful chaos of the game. <br>
-                        <span class="highlight">Let’s connect if you're into AI systems, quirky product ideas, or just enjoy some quality sports banter.</span></p>
-                    </div>
-                    <div class="about-image fade-in-right">
-                        <img src="img\myooor_imageGen.png" alt="Mayur Parab">
-                    </div>
-                </div>
-                <!-- <a href="#" class="section-link">about me →</a>-->
-            </section>
-
-            <section id="contact" class="section fade-in-left">
-                <h2 class="section-title">.why don't you come say hi</h2>
-                <div class="contact-content">
-                    <div class="social-links">
-                        <div class="social-link">
-                            <a href="mailto:mayur.parab1223@gmail.com" class="contact-link">
-                                <span class="service-name">Email</span>
-                            </a>
-                            <span class="service-description">- for your queries</span>
-                        </div>
-                        
-                        <div class="social-link">
-                            <a href="https://x.com/_myoooor" class="contact-link">
-                                <span class="service-name">X/Twitter</span>
-                            </a>
-                            <span class="service-description">- my thoughts on AI, Sports, and Life</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer class="site-footer">
-            <div class="container">
-              <p class="copyright">&copy; <span id="current-year"></span> All Rights Reserved.</p>
+        <section aria-labelledby="h1">
+            <div class="strip">
+                <p class="kicker">Founder, XeroLabs · Navi Mumbai, India</p>
+                <h1 id="h1">Applied Generalist</h1>
+                <p class="sub">someone who thinks like a product designer, builds like an engineer and experiments with curiosity</p>
             </div>
-        </footer>
+            <div class="stage">
+                <div class="stage-art" id="stageArt">
+                    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <span class="art-note">Hover to tilt</span>
+                </div>
+                <aside class="stage-copy">
+                    <p class="lead">Right now I'm building Auralynk, a social app for real-world side-quests and vibe checks with friends, live on iOS and Android. Before that I trained predictive models, shipped data pipelines and built web apps for clients.</p>
+                    <div class="switch">
+                        <button id="motionSwitch" type="button" role="switch" aria-checked="false" aria-labelledby="motionLabel"></button>
+                        <span id="motionLabel">Pause motion</span>
+                    </div>
+                    <div class="nowbox">
+                        <div class="pill"><span>Building now: Auralynk, Sneek</span><a class="cta-link" href="#work">See the work</a></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="work" aria-labelledby="work-h">
+            <div class="sec-h">
+                <h2 id="work-h">Selected work</h2>
+                <p>9 projects across products, games, tools and client work</p>
+            </div>
+            <div class="tabs" role="tablist" aria-label="Project groups" id="tabs"></div>
+            <div id="panels"></div>
+        </section>
+
+        <section class="about" id="about" aria-labelledby="about-h">
+            <div class="about-l"><h2 id="about-h">About</h2></div>
+            <div class="about-r">
+                <p class="big">I’m interested in the space between a good idea and something that actually works.</p>
+                <p class="small">I enjoy moving between disciplines: figuring out the product, designing the experience, writing the code and finding unconventional ways to solve problems. That curiosity has taken me through AI, data engineering, software development and now building products of my own.</p>
+                <p class="small">I run XeroLabs, where I’m currently building Auralynk and exploring new product ideas.</p>
+                <p class="small">I don’t particularly enjoy staying in one lane. There’s usually something more interesting happening just outside it.</p>
+                <dl class="facts">
+                    <div><dt>Company</dt><dd>XeroLabs Private Limited, <a href="https://xerolabs.in" target="_blank" rel="noopener">xerolabs.in</a></dd></div>
+                    <div><dt>Based in</dt><dd>Navi Mumbai, India</dd></div>
+                    <div><dt>Product</dt><dd>Auralynk, on iOS and Android</dd></div>
+                    <div><dt>Earlier</dt><dd>AI consulting and data engineering</dd></div>
+                    <div><dt>Off the clock</dt><dd>Sports statistics</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="contact" id="contact" aria-labelledby="contact-h">
+            <h2 id="contact-h">Have an interesting idea? Let’s talk.</h2>
+            <p class="contact-sub">Always up for interesting projects, unconventional collaborations, good conversations and ideas worth exploring.</p>
+            <div class="crow"><span class="l">X</span><span class="v"><a href="https://x.com/_myooooor" target="_blank" rel="noopener">@_myooooor</a></span><span></span></div>
+            <div class="crow"><span class="l">Email</span><span class="v" id="emailText">mayur.parab@xerolabs.in</span><button class="btn btn-solid" type="button" data-copytext="mayur.parab@xerolabs.in" data-msg="Email copied"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1"/><path d="M10.5 3.5v-1h-8v8h1"/></svg>Copy</button></div>
+        </section>
+        <footer class="foot"><span>© 2026 Mayur Parab. All rights reserved.</span><span>Navi Mumbai, India</span></footer>
     </div>
+
+    <dialog class="dlg" id="dlg" aria-labelledby="dlgTitle"></dialog>
+    <div class="toast" id="toast" role="status" hidden></div>
     <script src="script.js"></script>
 </body>
 </html>
