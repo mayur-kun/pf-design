@@ -105,9 +105,9 @@ var SHAPES={
     if(r()<0.55){o.x=c[(r()*4)|0]+gz(r)*0.04;o.y=c[(r()*4)|0]+gz(r)*0.04;o.z=c[(r()*4)|0]+gz(r)*0.04;o.w=1}
     else{var ax=(r()*3)|0,p=[c[(r()*4)|0],c[(r()*4)|0],c[(r()*4)|0]];p[ax]=-0.6+r()*1.2;o.x=p[0];o.y=p[1];o.z=p[2];o.w=0.5}}},
   card:{spin:'swing',tilt:0.12,gen:function(r,i,N,o){
-    var x=(r()-0.5)*1.05,y=(r()-0.5)*1.5,w=0.25;
-    if(Math.abs(x)/0.27+Math.abs(y)/0.4<1)w=1;
-    if(Math.abs(x)>0.485||Math.abs(y)>0.735)w=0.9;
+    var x,y,w=0.25;
+    if(r()<0.6){var p,q;do{p=r()*2-1;q=r()*2-1}while(Math.abs(p)+Math.abs(q)>=1);x=p*0.27;y=q*0.4;w=1}
+    else{x=(r()-0.5)*1.05;y=(r()-0.5)*1.5;if(Math.abs(x)/0.27+Math.abs(y)/0.4<1)w=1;if(Math.abs(x)>0.485||Math.abs(y)>0.735)w=0.9}
     o.x=x;o.y=y;o.z=(r()-0.5)*0.04;o.w=w}},
   frames:{spin:'swing',tilt:0.1,gen:function(r,i,N,o){
     var f=(r()*3)|0,x,y,w;
